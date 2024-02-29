@@ -1,7 +1,11 @@
 package lib
 
 type RarityRegistry struct {
-	rarities []*Rarity
+	Common    *Rarity
+	Uncommon  *Rarity
+	Rare      *Rarity
+	VeryRare  *Rarity
+	Legendary *Rarity
 }
 
 func NewRarityRegistry() *RarityRegistry {
@@ -13,12 +17,10 @@ func NewRarityRegistry() *RarityRegistry {
 	legendary := NewRarity("Legendary", 5, "yellow")
 
 	return &RarityRegistry{
-		rarities: []*Rarity{
-			common,
-			uncommon,
-			rare,
-			veryRare,
-			legendary,
-		},
+		Common:    common,
+		Uncommon:  uncommon,
+		Rare:      rare,
+		VeryRare:  veryRare,
+		Legendary: legendary,
 	}
 }
