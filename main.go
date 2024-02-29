@@ -36,17 +36,17 @@ var (
 
 	commands = []*discordgo.ApplicationCommand{
 		{
-			Name:        "inventory",
-			Description: "returns shopkeeper inventory",
+			Name:        "stores",
+			Description: "returns available stores",
 		},
 	}
 
 	commandHandlers = map[string]func(s *discordgo.Session, i *discordgo.InteractionCreate){
-		"inventory": func(s *discordgo.Session, i *discordgo.InteractionCreate) {
+		"stores": func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 			s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 				Type: discordgo.InteractionResponseChannelMessageWithSource,
 				Data: &discordgo.InteractionResponseData{
-					Content: handlers.GetInventory(),
+					Content: handlers.SayHi(),
 				},
 			})
 		},
